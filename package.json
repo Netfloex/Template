@@ -9,7 +9,7 @@
 		"dev": "tsnd --respawn -T --rs --cls -r tsconfig-paths/register src",
 		"lint": "eslint .",
 		"prepare": "husky install",
-		"typescript": "tsc --noEmit"
+		"typescript": "tsc"
 	},
 	"devDependencies": {
 		"@rollup/plugin-commonjs": "^21.0.1",
