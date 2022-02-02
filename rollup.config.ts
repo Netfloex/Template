@@ -19,10 +19,10 @@ export default defineConfig({
 	},
 	external: [],
 	plugins: [
+		nodeResolve({ preferBuiltins: true }),
 		dev && run(),
 		json(),
 		typescript(),
 		commonjs(),
-		nodeResolve({ preferBuiltins: true }),
 	],
 });
