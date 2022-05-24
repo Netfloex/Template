@@ -13,7 +13,6 @@ COPY . .
 COPY --from=deps /app/node_modules ./node_modules
 
 RUN yarn build
-RUN yarn install --production --ignore-scripts --prefer-offline
 
 FROM alpine AS runner
 WORKDIR /app
@@ -21,10 +20,7 @@ WORKDIR /app
 RUN apk add --no-cache --repository=http://dl-cdn.alpinelinux.org/alpine/v3.11/main/ nodejs=12.22.6-r0
 
 
-COPY --from=builder /app/dist ./dist
-
-COPY --from=builder /app/node_modules ./node_modules
-COPY --from=builder /app/package.json ./package.json
+COPY --from=builder /app/dist/index.js .
 
 
-CMD [ "node", "dist/index.js" ]
+CMD [ "node", "index.js" ]
