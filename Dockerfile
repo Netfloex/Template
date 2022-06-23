@@ -14,7 +14,7 @@ COPY --from=deps /app/node_modules ./node_modules
 
 RUN yarn build
 
-FROM alpine AS runner
+FROM alpine:3 AS runner
 WORKDIR /app
 
 RUN apk add --no-cache --repository=http://dl-cdn.alpinelinux.org/alpine/v3.11/main/ nodejs=12.22.6-r0
