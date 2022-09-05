@@ -1,4 +1,4 @@
-ARG NODE_IMAGE=node:12-alpine
+ARG NODE_IMAGE=node:16-alpine
 
 FROM $NODE_IMAGE AS deps
 WORKDIR /app
@@ -17,7 +17,7 @@ RUN yarn build
 FROM alpine:3 AS runner
 WORKDIR /app
 
-RUN apk add --no-cache --repository=http://dl-cdn.alpinelinux.org/alpine/v3.11/main/ nodejs=12.22.6-r0
+RUN	apk add --no-cache --repository=http://dl-cdn.alpinelinux.org/alpine/v3.16/main/ nodejs=16.16.0-r0
 
 
 COPY --from=builder /app/dist/index.js .
