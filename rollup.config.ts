@@ -7,7 +7,7 @@ import { terser } from "rollup-plugin-terser"
 import typescript from "rollup-plugin-typescript2"
 
 export default defineConfig({
-	input: join("src/index.ts"),
+	input: join(process.cwd(), "src", "index.ts"),
 	output: {
 		dir: "dist",
 		format: "cjs",
